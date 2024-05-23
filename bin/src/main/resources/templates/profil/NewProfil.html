@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Welcome to your Profil</h1>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Nom:</strong> <span th:text="${profil.nom}"></span></p>
+            <p><strong>Prénom:</strong> <span th:text="${profil.prenom}"></span></p>
+            <p><strong>Âge:</strong> <span th:text="${profil.age}"></span></p>
+            <p><strong>Sexe:</strong> <span th:text="${profil.sexe}"></span></p>
+            <p><strong>Taille:</strong> <span th:text="${profil.taille}"></span></p>
+            <p><strong>Poids:</strong> <span th:text="${profil.poids}"></span></p>
+            <p><strong>Description:</strong> <span th:text="${profil.description}"></span></p>
+        </div>
+    </div>
+      <a class="btn btn-primary" th:href="@{/modifierProfil1(id=${profil.idprofil})}">Modifier</a>
+      <a href="homeUser" class="btn btn-secondary">Retour à l'accueil</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

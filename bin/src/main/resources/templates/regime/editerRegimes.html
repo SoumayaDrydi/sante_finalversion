@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="">
+        <link rel="stylesheet" type="text/css"
+href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
+<script type="text/javascript" src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Modifier un regime</title>
+</head>
+<body>
+	<div class="container">
+   <div class="card-body">
+	<h1>Modifier  un regime</h1>
+<form action="updateRegime" method="post">
+    <pre>
+		<input type="hidden" name="idregime" th:value="${regime.idregime}" />
+         <div>
+<label for="typeregime">Typeregime :</label>
+ <input type="text" class="form-control" id="typeregime" name="typeregime" th:value="${regime.typeregime}">
+         </div>
+          <button type="submit" class="btn btn-primary">Modifier</button>
+    </pre>
+</form>
+<br/>
+<br/>
+<a href="ListeRegimes">Liste Regimes</a></div>
+</body>
+</html>

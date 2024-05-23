@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du Régime</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+             
+            background-image: url('https://media.istockphoto.com/id/540123282/photo/breakfast-copy-space-frame.jpg?s=1024x1024&w=is&k=20&c=OTgwCG0WRth7NdJ753T-r_lJ5gha_fHiep_FAlTdabo=');
+            background-size: cover; /* Redimensionne l'image pour couvrir toute la surface */
+            background-repeat: no-repeat; /* Empêche la répétition de l'image */
+        
+        
+        }
+
+        .container {
+            margin-top: 50px; /* Espacement du haut */
+        }
+
+        .card {
+            border: none; /* Suppression de la bordure de la carte */
+            border-radius: 10px; /* Arrondi des coins */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre */
+            padding: 30px; /* Espacement intérieur */
+                 
+            background-color: rgba(255, 255, 255, 0.5); /* 0.5 pour 50% d'opacité */
+            backdrop-filter: blur(10px); /* Pour un effet de flou sur le fond */
+        
+        }
+
+        h1 {
+            margin-bottom: 30px; /* Espacement du bas */
+            color: #343a40; /* Couleur du texte */
+        }
+
+        p {
+            margin-bottom: 20px; /* Espacement du bas */
+        }
+
+        ul {
+            padding-left: 20px; /* Espacement à gauche pour la liste */
+        }
+
+        li {
+            margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Détails du Régime</h1>
+            <p>Identifiant du Régime : <span th:text="${regime.idregime}"></span></p>
+            <!-- Ajoutez d'autres détails du régime ici -->
+            <p>Descriptions :</p>
+            <ul>
+                <li th:each="description : ${regime.descriptions}" th:text="${description}"></li>
+            </ul>
+        </div>
+         
+    </div>
+</body>
+</html>

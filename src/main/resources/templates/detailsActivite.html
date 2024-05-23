@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'activité</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #343a40;
+            background-image: url('https://www.businessnews.com.tn/images/album/IMGBN98844sport-sante-mentale.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(248, 249, 250, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h2 {
+            color: #ffc107;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Détails de l'activité</h2>
+        <div class="card">
+            <div class="card-body">
+                
+                <p class="card-text">Type d'activité: <span th:text="${activite.typeActivite}">Yoga</span></p>
+                <p class="card-text">Description: <span th:text="${activite.description}">Session de yoga</span></p>
+            </div>
+        </div>
+        <a href="activiteList1" class="btn btn-secondary mt-3">Retour à la liste</a>
+    </div>
+</body>
+</html>
+

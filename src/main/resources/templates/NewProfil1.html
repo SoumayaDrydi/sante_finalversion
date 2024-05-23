@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NewProfil1</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div>
+        <p>Profile ID: <span th:text="${profil.id}"></span></p>
+        <p>Profile Name: <span th:text="${profil.name}"></span></p>
+        <!-- Add more profile details as needed -->
+        <h2>Regimes:</h2>
+        <ul>
+            <li th:each="regime : ${profil.regimes}" th:text="${regime.name}"></li>
+        </ul>
+    </div>
+    <!-- Form to add a new regime -->
+    <form th:action="@{/user-profiles/{userProfileId}/regimes}" method="post">
+        <input type="hidden" name="userProfileId" th:value="${profil.id}" />
+        <label for="regimeId">Regime ID:</label>
+        <input type="text" id="regimeId" name="regimeId" />
+        <button type="submit">Add Regime</button>
+    </form>
+    
+</body>
+</html>

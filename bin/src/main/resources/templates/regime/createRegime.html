@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${jstlCss}">
+</head>
+<body>
+	<div class="container">
+   <div class="card-body">
+	<h1>Créer un regime</h1>
+<form th:action="@{/saveRegime}" method="post">
+    <pre>
+      <div class="form-group">
+<label class="control-label">type:</label> <input type="text" name="typeregime"  class="form-control">
+         </div>
+      <input type="submit" value="ajouter"  class="btn btn-primary">
+    </div></pre>
+</form>
+</div>
+<div th:text="${msg}"></div>
+<br/>
+<br/>
+<a th:href="@{/ListeRegimes}">Liste regimes</a>
+</div>
+</body>
+</html>

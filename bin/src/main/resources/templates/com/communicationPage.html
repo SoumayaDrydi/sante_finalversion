@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Page</title>
+    <!-- Ajout des liens Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Formulaire de création de communication -->
+   <form th:action="@{/saveCom}" th:object="${communication}" method="post">
+        <div class="form-group">
+            <label for="acteur">Acteur:</label>
+            <input type="text" class="form-control" id="acteur" th:field="*{acteur}" required>
+        </div>
+        <div class="form-group">
+            <label for="avis_personnel">Avis Personnel:</label>
+            <textarea class="form-control" id="avis_personnel" th:field="*{avis_personnel}" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    
+    <hr>
+    
+    <!-- Liste des communications -->
+    <h2>Liste des communications</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Acteur</th>
+                <th>Avis Personnel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="communication : ${communications}">
+                
+                <td th:text="${communication.acteur}"></td>
+                <td th:text="${communication.avis_personnel}"></td>
+                <td>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+ 
+
+    <!-- Ajout des scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

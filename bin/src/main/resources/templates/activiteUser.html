@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Profil</title>
+    <!-- Ajoutez ici vos liens vers les styles CSS et les bibliothèques JavaScript nécessaires -->
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Profil</h1>
+        <!-- Affichage des détails du profil -->
+        <p>Nom: <span th:text="${profil.nom}"></span></p>
+        <!-- Affichage d'autres détails du profil -->
+        
+        <!-- Formulaire pour ajouter une activité -->
+        <form action="/profil/{profilId}/ajouter-activite" method="post">
+            <!-- Champs pour l'activité -->
+            <div class="form-group">
+                <label for="nomActivite">Nom de l'activité:</label>
+                <input type="text" id="nomActivite" name="nom" class="form-control" placeholder="Nom de l'activité" required>
+            </div>
+            <!-- Autres champs -->
+            <!-- Ajoutez ici d'autres champs si nécessaire -->
+
+            <button type="submit" class="btn btn-primary">Ajouter Activité</button>
+        </form>
+    </div>
+    <!-- Ajoutez ici vos liens vers les scripts JavaScript nécessaires -->
+</body>
+</html>

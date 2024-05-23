@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Santé</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a, .navbar button {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar button:hover {
+            background-color: #555;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 20px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #555;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Article grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .article {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Video */
+        .video-container {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%; /* Adjust to make the video larger */
+            height: 350px; /* Adjust to make the video taller */
+        }
+
+        /* Background image for article 1 */
+        .article1 {
+            background-image: url('https://www.mesbienfaits.com/wp-content/uploads/yoga-femme.jpg');
+            background-size: cover; /* Ajuste la taille de l'image pour couvrir complètement le conteneur */
+            background-position: center; /* Centre l'image à l'intérieur du conteneur */
+            width: 100%;
+            height: 300px; /* Hauteur ajustée selon la taille de l'image */
+        }
+        .article2 {
+            background-image: url('https://www.mesbienfaits.com/wp-content/uploads/meditation-homme-nature-paysage-asiatique-303x170.jpg');
+            background-size: cover; /* Ajuste la taille de l'image pour couvrir complètement le conteneur */
+            background-position: center; /* Centre l'image à l'intérieur du conteneur */
+            width: 100%;
+            height: 300px; /* Hauteur ajustée selon la taille de l'image */
+        }
+        .article3 {
+            background-image: url('https://www.mesbienfaits.com/wp-content/uploads/developement-personnel-categorie.jpg');
+            background-size: cover; /* Ajuste la taille de l'image pour couvrir complètement le conteneur */
+            background-position: center; /* Centre l'image à l'intérieur du conteneur */
+            width: 100%;
+            height: 300px; /* Hauteur ajustée selon la taille de l'image */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Profil
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="ListeProfils">Liste des Profil</a>
+        </div>
+   </div>
+    <div class="dropdown">
+        <button class="dropbtn">Activité
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="activiteList">Liste des Activites</a>
+            <a href="showCreate3">Ajouter des activites</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Régime
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="ListeRegimes">Liste des Regimes</a>
+            <a href="showCreate1">Ajouter des regimes</a>
+        </div>
+    </div>
+     <div class="dropdown">
+        <button class="dropbtn">Communication
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="admin_chat">Liste des Messages</a>
+        </div>
+    </div>
+     <form method="POST" action="logout" style="float: right;">
+        <button type="submit">Déconnexion</button>
+    </form>
+</div>
+
+<!-- Article grid -->
+<div class="article-grid">
+    <!-- Video placeholder -->
+    <div class="video-container">
+        <iframe width="1000" height="600" src="https://www.youtube.com/embed/c06dTj0v0sM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Articles -->
+    <div class="article">
+        <div class="article1">
+            <h2>SPORT</h2>
+            <p>L’activité physique est incontournable pour atteindre le bien-être et la pleine santé</p>
+            <a href="https://www.mesbienfaits.com/sport/">Lire plus</a>
+        </div>
+    </div>
+    <div class="article">
+        <div class="article2">
+            <h2>THÉRAPIES SANTÉ</h2>
+            <p>Découvrez différentes thérapies santé</p>
+            <a href="https://www.mesbienfaits.com/therapies-sante/">Lire plus</a>
+        </div>
+        <!-- Add more articles here -->
+    </div>
+       <div class="article">
+        <div class="article3">
+            <h2>DÉVELOPPEMENT PERSONNEL</h2>
+            <p>Le développement personnel permet d’accroître le bien-être</p>
+            <a href="https://www.mesbienfaits.com/developpement-personnel/">Lire plus</a>
+        </div>
+        <!-- Add more articles here -->
+    </div>
+</div>
+
+</body>
+</html>

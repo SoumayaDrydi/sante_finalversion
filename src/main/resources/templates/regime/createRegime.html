@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Régime</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            
+            background-image: url('https://media.istockphoto.com/id/1124645108/photo/healthy-lifestyle-concept-with-vegetarian-food-heart-diet-fitness-and-medicine.jpg?s=1024x1024&w=is&k=20&c=ahVdZczZaWsVtmQ4kokwaEPfCjq-q-23hWIPf3TujeA='); /* Remplacez 'chemin/vers/votre/image.jpg' par le chemin de votre image */
+            background-size: cover; /* Redimensionne l'image pour couvrir toute la surface */
+            background-repeat: no-repeat; /* Empêche la répétition de l'image */
+        
+        }
+
+        .container {
+            margin-top: 50px; /* Espacement du haut */
+        }
+
+        .card-body {
+            background-color: rgb(192, 192, 192); /* Couleur de fond de la carte */
+            border-radius: 10px; /* Arrondi des coins de la carte */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre de la carte */
+            padding: 30px; /* Espacement intérieur de la carte */
+        }
+
+        h1 {
+            margin-bottom: 30px; /* Espacement du bas du titre */
+            color: #343a40; /* Couleur du titre */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Espacement entre les champs de formulaire */
+        }
+
+        .form-text {
+            color: #6c757d; /* Couleur du texte d'aide */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Couleur de fond du bouton Enregistrer */
+            border-color: #007bff; /* Couleur de la bordure du bouton Enregistrer */
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9; /* Couleur de fond au survol du bouton Enregistrer */
+            border-color: #0062cc; /* Couleur de la bordure au survol du bouton Enregistrer */
+        }
+
+        a {
+				text-decoration: none;
+            color: rgb(0, 0, 0); /* Couleur du lien Liste régimes */
+        }
+
+        a:hover {
+				text-decoration: none;
+		
+            color: rgb(255, 255, 255); /* Couleur du lien au survol */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card-body">
+        <h1>Créer un Régime</h1>
+        <form th:action="@{/saveRegime}" th:object="${regime}" method="post">
+            <div class="form-group">
+                <label class="control-label">Type:</label>
+                <select th:field="*{typeregime}" class="form-control" required>
+                    <option th:each="type : ${typesRegime}"
+                            th:value="${type}" th:text="${type}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Description 1:</label>
+                <input type="text" th:field="*{descriptions[0]}" class="form-control" pattern="[A-Za-z\s]+" required>
+                <small class="form-text text-muted">Veuillez entrer une description (chaîne de caractères uniquement).</small>
+            </div>
+            <div class="form-group">
+                <label>Description 2:</label>
+                <input type="text" th:field="*{descriptions[1]}" class="form-control" pattern="[A-Za-z\s]+" required>
+                <small class="form-text text-muted">Veuillez entrer une description (chaîne de caractères uniquement).</small>
+            </div>
+            <!-- You can add more description fields here if needed -->
+
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </div>
+    <div th:text="${msg}"></div>
+    <br/>
+    <br/>
+    <a th:href="@{/ListeRegimes}">Liste régimes</a>
+</div>
+</body>
+</html>

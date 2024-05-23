@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${jstlCss}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Add New Activity</h2>
+         <form action="saveAc" method="post">
+            <div class="form-group">
+                <label for="typeActivite">typeActivite:</label>
+               <input type="text" class="form-control" id="typeActivite" name="typeActivite" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Activity</button>
+        </form>
+        <hr>
+        <a href="activiteList" class="btn btn-secondary">View Activity List</a>
+    </div>
+
+    <!-- jQuery -->
+   
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Liste des Profils</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="/css/main.css" rel="stylesheet">
+    <style>
+        .background-image {
+            background-image: url('https://www.floorzorgt.nl/sites/default/files/styles/16_9_large/public/2021-02/floor-fasting.jpg?h=7936b491&itok=H4vQzn5R');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Full height */
+        }
+        
+        /* Overlay to make text readable */
+        .overlay {
+            background: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image d-flex justify-content-center align-items-center">
+        <div class="container mt-4 overlay">
+            <h2>Liste des Profils</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Age</th>
+                                    <th>Sexe</th>
+                                    <th>Taille</th>
+                                    <th>Poids</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="p : ${profils}">
+                                    <td th:text="${p.idprofil}"></td>
+                                    <td th:text="${p.nom}"></td>
+                                    <td th:text="${p.prenom}"></td>
+                                    <td th:text="${p.age}"></td>
+                                    <td th:text="${p.sexe}"></td>
+                                    <td th:text="${p.taille}"></td>
+                                    <td th:text="${p.poids}"></td>
+                                    <td th:text="${p.description}"></td>
+                                    <td>
+                                        <a class="btn btn-danger" th:href="@{/supprimerProfil(id=${p.idprofil})}" th:onclick="return confirm('Etes-vous sûr ?')">Supprimer</a>
+                                        <a class="btn btn-primary" th:href="@{/modifierProfil(id=${p.idprofil})}">Modifier</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        <li th:each="page,status:${pages}" th:class="${status.index==currentPage?'page-item active':'page-item'}">
+                            <a class="page-link" th:href="@{ListeProduits(page=${status.index}, size=${size})}" th:text="${status.index}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="home" class="btn btn-secondary">Retour à l'accueil</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

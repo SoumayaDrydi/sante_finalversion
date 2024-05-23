@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des activités</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #343a40;
+            background-image: url('https://www.businessnews.com.tn/images/album/IMGBN98844sport-sante-mentale.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(248, 249, 250, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h2 {
+            color: #ffc107;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .btn-danger, .btn-warning {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Liste des activités</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type d'activité</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="activite : ${activites}">
+                    <td th:text="${activite.idActivite}">1</td>
+                    <td th:text="${activite.typeActivite}">Yoga</td>
+                    <td th:text="${activite.description}">Session de yoga</td>
+                    <td>
+                        <a th:href="@{|/modifierActivite?id=${activite.idActivite}|}" class="btn btn-warning">Modifier</a>
+                        <a th:href="@{|/supprimerActivite?id=${activite.idActivite}|}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="showCreate3" class="btn btn-primary">Ajouter une nouvelle activité</a>
+    </div>
+</body>
+</html>

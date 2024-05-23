@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Régimes</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container table {
+            background-color: lightgrey;
+        }
+
+        /* Personnaliser la couleur de la navbar */
+        .navbar-custom {
+            background-color: #f0ad4e; /* Couleur jaune motarde */
+            height: 80px; /* Hauteur de la barre de navigation */
+        }
+
+        .navbar-brand img {
+            margin-right: 10px; /* Marge à droite de l'image */
+            background-color: #f0ad4e; /* Couleur jaune motarde */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://media.istockphoto.com/id/1442424687/vector/woman-on-diet.jpg?s=1024x1024&w=is&k=20&c=l_jLMbRqxwnAdw2aNJw-x1OiVrFUCIvKe7fxvxtTJuo="    width="70" height="70" class="d-inline-block align-top, rounded-circle"  alt="">
+                Liste des Régimes
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+                <div class="container background-image">
+                    <table class="table table-bordered mt-4">
+                        <thead>
+                            <tr>
+                               
+                                <th>Type de Régime</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Utilisation de th:each pour itérer sur chaque régime -->
+                            <tr th:each="regime : ${regimes}">
+
+                                <td th:text="${regime.typeregime}"></td>
+                                <td>
+                                   
+                                    <a th:href="@{regime/detailsRegime(id=${regime.idregime})}" class="btn btn-info btn-sm">Détails</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <a href="homeUser" class="btn btn-secondary">Retour à l'accueil</a>
+                </div>
+            </div>
+      
+
+</body>
+</html>

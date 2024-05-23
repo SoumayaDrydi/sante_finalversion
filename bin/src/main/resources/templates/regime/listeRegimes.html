@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${jstlCss}">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Liste des Regimes</h1>
+
+
+    <table class="table table-bordered mt-4">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>type Regime</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="regime: ${regimes}">
+            <td th:text="${regime.idregime}"></td>
+            <td th:text="${regime.typeregime}"></td>
+
+            <td>
+				
+                <a class="btn btn-danger" th:href="@{/supprimerRegime(id=${regime.idregime})}" onclick="return confirm('etes-vous sur ?')">
+                  Supprimer
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/modifierRegime(id=${regime.idregime})}" class="btn btn-primary btn-sm">Modifier</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+<a href="home" class="btn btn-secondary">Retour à l'accueil</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un régime</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond */
+            padding-top: 50px; /* Espacement en haut */
+        }
+
+        .card {
+            border: none; /* Suppression de la bordure de la carte */
+            border-radius: 10px; /* Arrondi des coins */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre */
+            padding: 30px; /* Espacement intérieur */
+            background-color: #fff; /* Couleur de fond */
+        }
+
+        h1 {
+            margin-bottom: 30px; /* Espacement du bas */
+            color: #343a40; /* Couleur du texte */
+        }
+
+        label {
+            font-weight: bold; /* Texte en gras */
+            color: #343a40; /* Couleur du texte */
+        }
+
+        .form-control {
+            border-radius: 5px; /* Arrondi des coins des champs de formulaire */
+        }
+
+        button[type="submit"] {
+            margin-top: 20px; /* Espacement du haut */
+        }
+
+        .img-container {
+            display: flex;
+            justify-content: center; /* Centrer horizontalement */
+            align-items: center; /* Centrer verticalement */
+            height: 100%;
+        }
+
+        .img-container img {
+            max-width: 100%; /* Image responsive */
+            max-height: 400px; /* Hauteur maximale */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center"> <!-- Centrer horizontalement -->
+            <div class="col-md-6">
+                <div class="card">
+                    <h1>Modifier un régime</h1>
+                    <form th:action="@{/updateRegime}" th:object="${regime}" method="post">
+                        <input type="hidden" name="idregime" th:value="${regime.idregime}" />
+                        <div class="form-group">
+                            <label class="control-label">Type:</label>
+                            <select th:field="*{typeregime}" class="form-control" required>
+                                <option th:each="type : ${typesRegime}"
+                                        th:value="${type}" th:text="${type}"
+                                        th:selected="${type == regime.typeregime}">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Description 1:</label>
+                            <input type="text" th:field="*{descriptions[0]}" class="form-control" pattern="[A-Za-z\s]+" required>
+                            <small class="form-text text-muted">Veuillez entrer une description (chaîne de caractères uniquement).</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Description 2:</label>
+                            <input type="text" th:field="*{descriptions[1]}" class="form-control" pattern="[A-Za-z\s]+" required>
+                            <small class="form-text text-muted">Veuillez entrer une description (chaîne de caractères uniquement).</small>
+                        </div>
+                        <!-- You can add more description fields here if needed -->
+
+                        <button type="submit" class="btn btn-primary">Modifier</button>
+                    </form>
+                    <br/>
+                    <a href="ListeRegimes" class="btn btn-secondary">Liste Régimes</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img-container">
+                    <img src="https://media.istockphoto.com/id/1124645003/photo/diet-plan-and-healthy-lifestyle-concept-with-vegetarian-food-in-heart-and-gym-dumbbell.jpg?s=612x612&w=0&k=20&c=EUlrOistnmU_6jh2OaUPzlwfiKhciYdvlAQM-y5ciTw=" alt="Placeholder Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

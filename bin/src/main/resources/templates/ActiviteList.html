@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${jstlCss}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Activity List</h2>
+       
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>typeActivite</th>
+                      </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="a : ${activites}">
+                                <td th:text="${a.idActivite}"></td>
+                                <td th:text="${a.typeActivite}"></td>
+                               
+                               <td>
+                                    <a class="btn btn-danger" th:href="@{/supprimerActivite(id=${a.idActivite})}" th:onclick="return confirm('Etes-vous sûr ?')">Supprimer</a>
+                                    <a class="btn btn-primary" th:href="@{/modifierActivite(id=${a.idActivite})}">Modifier</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+            </div>
+        </div>
+        <a href="home" class="btn btn-secondary">Retour à l'accueil</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
